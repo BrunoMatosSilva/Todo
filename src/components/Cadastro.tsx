@@ -1,17 +1,15 @@
 import { PlusCircle } from "phosphor-react";
 import { ChangeEvent, FormEvent, useState } from "react";
+import { useTasks } from "../hooks/useTasks";
 
-interface AddTaskProps {
-    onAddTask: (taskTitle: string) => void;
-}
-
-export function Cadastro({ onAddTask }: AddTaskProps) {
+export function Cadastro() {
     const [title, setTitle] = useState("");
+    const { addTask } = useTasks();
 
     function handleSubmit(event: FormEvent) {
         event.preventDefault();
 
-        onAddTask(title);
+        addTask(title);
         setTitle("");
     }
 
