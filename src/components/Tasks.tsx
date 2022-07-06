@@ -9,7 +9,7 @@ export function Tasks() {
 
     return (
         <>
-            <div className="flex justify-center">
+            <div className="flex justify-center ml-2 mr-2">
                 <div className="w-[46rem] flex justify-between mt-16">
                     <div className="flex align-center">
                         <p className="text-blue-500 font-bold text-sm">Tarefas criadas</p>
