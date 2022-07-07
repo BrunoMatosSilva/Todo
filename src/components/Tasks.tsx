@@ -1,5 +1,6 @@
 import { Trash } from "phosphor-react";
 import { useTasks } from "../hooks/useTasks";
+import { EditModal } from "./EditModal";
 import { NoTask } from "./NoTask";
 
 export function Tasks() {
@@ -21,7 +22,7 @@ export function Tasks() {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center ml-2 mr-2">
                 {tasks.map((task) => (
                     <div key={task.id} className="w-full max-w-[46rem] flex-1 flex items-center rounded bg-gray-500 h-[72px] mt-6">
                         <div>
@@ -34,6 +35,7 @@ export function Tasks() {
                                 {task.title}
                             </p>
                         </div>
+                        <EditModal taskTitle={task.title} taskId={task.id} />
                         <div>
                             <Trash size={20} onClick={() => deleteTask(task.id)} className="accent-purple-500 h-[25px] text-gray-300 rounded-full m-5 cursor-pointer hover:text-red-500" />
                         </div>
