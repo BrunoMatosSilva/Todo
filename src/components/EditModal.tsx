@@ -1,6 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Pencil } from 'phosphor-react'
 import { Fragment, useState } from 'react'
+import toast from 'react-hot-toast';
 import { useTasks } from '../hooks/useTasks';
 
 interface Props {
@@ -15,6 +16,17 @@ export function EditModal({ taskTitle, taskId }: Props) {
     const [editTitle, setEditTitle] = useState(taskTitle)
 
     function handleEditTask() {
+
+        if (!editTitle.trim()) {
+            toast.error('Não é permitido criar tarefa sem texto!', {
+                style: {
+                    background: '#262626',
+                    color: '#fff'
+                }
+            });
+            return;
+        }
+
         editTask(taskId, editTitle);
         setIsOpen(false);
     }
@@ -26,7 +38,7 @@ export function EditModal({ taskTitle, taskId }: Props) {
     return (
         <>
             <div>
-                <Pencil onClick={() => setIsOpen(true)} size={20} className="accent-purple-500 h-[25px] text-gray-300 rounded-full m-5 cursor-pointer hover:text-blue-500" />
+                <Pencil onClick={() => setIsOpen(true)} size={20} className="accent-purple-500 h-[25px]  text-blue-700 dark:text-gray-300 rounded-full m-5 cursor-pointer hover:text-red-500" />
             </div>
 
             <Transition appear show={isOpen} as={Fragment}>
@@ -54,26 +66,26 @@ export function EditModal({ taskTitle, taskId }: Props) {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-gray-700 p-6 text-left align-middle shadow-xl transition-all">
+                                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-gray-200 dark:bg-gray-700 p-6 text-left align-middle shadow-xl transition-all">
                                     <Dialog.Title
                                         as="h3"
-                                        className="text-2xl font-bold leading-6 text-purple-500"
+                                        className=" flex flex-col justify-center items-center text-2xl font-bold leading-6 text-purple-900 dark:text-purple-500"
                                     >
                                         Edite sua Tarefa!
                                     </Dialog.Title>
-                                    <div className="mt-2">
+                                    <div className="mt-2 flex flex-col justify-center items-center">
                                         <input
-                                            className="text-gray-400 rounded focus:border-purple-500"
+                                            className=" text-gray-400 rounded focus:border-purple-500"
                                             type="text"
                                             defaultValue={editTitle}
                                             onChange={(e) => setEditTitle(e.target.value)}
                                         />
                                     </div>
 
-                                    <div className="mt-4">
+                                    <div className="mt-4 flex flex-col justify-center items-center">
                                         <button
                                             type="button"
-                                            className="inline-flex justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-sm font-medium text-white hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                                            className="inline-flex justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                                             onClick={handleEditTask}
                                         >
                                             Editar

@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="bg-gray-600 flex-1 flex h-full flex-col">
+      <main className="bg-gray-300 dark:bg-gray-600 flex-1 flex h-full flex-col">
         <Cadastro />
         <Tasks />
       </main>
