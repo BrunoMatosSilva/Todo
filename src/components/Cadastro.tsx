@@ -23,10 +23,6 @@ export function Cadastro() {
         setTitle("");
     }
 
-    function onChangeTitle(event: ChangeEvent<HTMLInputElement>) {
-        setTitle(event.target.value);
-    }
-
     return (
         <div className="flex justify-center ml-2 mr-2">
             <form className="-mt-7 w-full max-w-[46rem] h-[54px] flex items-center" onSubmit={handleSubmit}>
@@ -34,7 +30,7 @@ export function Cadastro() {
                     type="text"
                     className="max-w-[39.87rem] w-full h-full bg-gray-100 dark:bg-gray-500 border border-gray-300 dark:border-gray-700 rounded pl-4 placeholder:text-gray-300 placeholder:pl-2 focus:outline-none focus:border-purple-700"
                     placeholder="Adicione uma nova tarefa"
-                    onChange={onChangeTitle}
+                    onChange={(e) => setTitle(e.target.value)}
                     value={title}
                 />
                 <button
