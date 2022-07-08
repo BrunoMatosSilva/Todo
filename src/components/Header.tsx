@@ -1,5 +1,5 @@
 import { Moon, Sun } from "phosphor-react";
-import { useTheme } from "../hooks/UseTheme";
+import { useTheme } from "../hooks/useTheme";
 import { Logo } from "./Logo";
 
 export function Header() {
