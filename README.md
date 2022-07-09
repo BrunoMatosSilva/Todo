@@ -38,6 +38,16 @@ No desafio não foi obrigatório a função de edição, mas como desafio adicio
 
 &nbsp;
 
+## 💻 O que temos no Projeto:
+
+* Design Responsivo Completo.
+* Armazenamento dos Dados no LocalStorage.
+* Opção de Design Light ou Dark.
+* Alerta de campo vazio com Toast.
+* Contagem total de tarefas e marcação de concluidas.
+* TailwindCss usado para todo o Css do site.
+
+Link do App: https://todolist-wheat-one.vercel.app/
 
 #### A ideia inicial foi baseada no projeto do Ignite trila ReactJS da Rockeatseat 🚀.
 
